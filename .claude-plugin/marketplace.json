@@ -1,0 +1,15 @@
+{
+  "name": "rowset-dreaming",
+  "owner": {
+    "name": "Rowset LLC",
+    "email": "mark@rowset.co"
+  },
+  "description": "The Dreaming plugin for Claude Code, from Rowset LLC. The plugin itself is in the plugin/ folder.",
+  "plugins": [
+    {
+      "name": "dreaming",
+      "source": "./plugin",
+      "description": "Keeps Claude's memory notes true to what happened: reads past session transcripts and proposes evidence-backed corrections for you to approve."
+    }
+  ]
+}
