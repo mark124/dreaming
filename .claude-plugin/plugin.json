@@ -1,0 +1,12 @@
+{
+  "name": "dreaming",
+  "displayName": "Dreaming",
+  "version": "0.1.0",
+  "description": "Keeps Claude's memory notes true to what happened. Reads past session transcripts, checks each memory note against them, and proposes careful, evidence-backed corrections for you to approve.",
+  "author": {
+    "name": "Mark C. Johnson",
+    "email": "mark@rowset.co"
+  },
+  "license": "MIT",
+  "keywords": ["memory", "transcripts", "dreaming", "notes"]
+}
