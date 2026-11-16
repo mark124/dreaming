@@ -143,5 +143,10 @@ user scope and Claude Code 2.1.314 or later.
 ## Tests
     python tests/test_dreamctl.py   # checks of the non-AI steps, in a temp folder
 
+## Privacy
+Dreaming collects nothing and sends nothing to Rowset LLC or anyone else; your transcripts and
+notes stay on your machine and reach Claude only through your own Claude Code session. Details:
+[Privacy](PRIVACY.md).
+
 ## License
 MIT. Copyright (c) 2026 Rowset LLC. See LICENSE.
