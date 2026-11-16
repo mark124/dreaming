@@ -60,7 +60,6 @@ DEFAULTS = {
     "first_run_days": 2,
     "budget_kb": 1500,
     "lead_model": "sonnet",
-    "clear_api_key_env": False,  # nightly: use the Claude login instead of ANTHROPIC_API_KEY
     "max_notes_changed": 30,
     "nightly_timeout_min": 180,
 }
@@ -885,9 +884,6 @@ def cmd_nightly(a):
         prompt = prompt.replace(k, v)
     (run / "lead_prompt_filled.md").write_text(prompt, encoding="utf-8")
     env = dict(os.environ)
-    if cfg.get("clear_api_key_env"):
-        env.pop("ANTHROPIC_API_KEY", None)
-        env.pop("ANTHROPIC_AUTH_TOKEN", None)
     claude = shutil.which("claude")
     if not claude:
         return fail("the claude command was not found on PATH")

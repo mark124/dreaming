@@ -141,12 +141,12 @@ Claude Code and Python 3.9+ (`python` or `python3` on the PATH). The nightly pas
 user scope and Claude Code 2.1.314 or later.
 
 ## Tests
-    python tests/test_dreamctl.py   # checks of the non-AI steps, in a temp folder
+    python tests/test_dreamctl.py   # from the repository root: checks of the non-AI steps, in a temp folder
 
 ## Privacy
 Dreaming collects nothing and sends nothing to Rowset LLC or anyone else; your transcripts and
 notes stay on your machine and reach Claude only through your own Claude Code session. Details:
-[Privacy](PRIVACY.md).
+[Privacy](https://github.com/mark124/dreaming/blob/main/PRIVACY.md).
 
 ## License
 MIT. Copyright (c) 2026 Rowset LLC. See LICENSE.
