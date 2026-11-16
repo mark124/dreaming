@@ -2,7 +2,6 @@
 name: dream
 description: Run a dreaming pass now on this project's memory notes - read the session transcripts since the last pass, check the notes against them, and propose (or, if asked, make) careful corrections. Use when the user asks to dream, to run the memory pass, to check or correct memory from transcripts, or to update memory from recent sessions.
 argument-hint: "[apply] [days=N]"
-allowed-tools: Read, Write, Edit, Glob, Grep, Agent, Bash(python *dreamctl.py*), Bash(python3 *dreamctl.py*)
 ---
 
 # Dreaming pass (run now, in this session)

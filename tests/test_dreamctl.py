@@ -496,21 +496,14 @@ with tempfile.TemporaryDirectory() as tmp:
     code, out, _ = ctl("restore", run)
     check("plain restore of a propose run is refused", code == 1 and "--review" in out.get("error", ""), out)
 
-    hook = json.loads((ROOT / "hooks" / "hooks.json").read_text(encoding="utf-8"))
-    cmd = hook["hooks"]["SessionStart"][0]["hooks"][0]["command"].replace("${CLAUDE_PLUGIN_ROOT}", ROOT.as_posix())
-    bash = next((b for b in (str(Path("C:/Program Files/Git/bin/bash.exe")), shutil.which("bash"))
-                 if b and Path(b).exists()), None)
-    if bash:
-        hr = subprocess.run([bash, "-c", cmd], input=json.dumps({"cwd": str(project)}), capture_output=True,
-                            text=True, encoding="utf-8", env=env, cwd=str(project))
-        check("hook command prints the reminder from the project folder",
-              hr.returncode == 0 and "waiting for review" in hr.stdout, hr.stdout + hr.stderr)
-        hr2 = subprocess.run([bash, "-c", cmd], input="", capture_output=True, text=True, encoding="utf-8",
-                             env=env, cwd=str(tmp))
-        check("hook is silent in a project with no memory", hr2.returncode == 0 and hr2.stdout.strip() == "",
-              hr2.stdout)
-    else:
-        print("SKIP  hook checks (no bash found)")
+    # The plugin ships no hooks and pre-approves no tools (the directory's rules).
+    check("the plugin ships no command hooks", not (ROOT / "hooks").exists())
+    skills_text = "".join(p.read_text(encoding="utf-8") for p in (ROOT / "skills").rglob("SKILL.md"))
+    check("no skill pre-approves tools", "allowed-tools" not in skills_text)
+    hr2 = subprocess.run([sys.executable, str(CTL), "pending"], input="", capture_output=True, text=True,
+                         encoding="utf-8", env=env, cwd=str(tmp))
+    check("pending is silent in a folder with no memory", hr2.returncode == 0 and hr2.stdout.strip() == "",
+          hr2.stdout)
 
     # Review: snapshot, apply, mark reviewed, undo the review.
     code, out, _ = ctl("snapshot", run)

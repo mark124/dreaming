@@ -41,8 +41,7 @@ Then, in a project that has Claude memory notes:
 - `/dreaming:dream-setup`: show where files live, create settings and a
   profile, and optionally schedule a nightly propose-only pass.
 
-When proposals are waiting, the next session in that project mentions it in one
-line.
+`/dreaming:dream-review` shows whether proposals are waiting.
 
 ## Files
 - Per project: `~/.claude-dreaming/<project>/` holds `config.json`,
@@ -138,9 +137,7 @@ someone described in other words.
   could lose its newest lines, so only long-idle sessions are pruned.
 
 ## Requirements
-Claude Code and Python 3.9+ (`python` or `python3` on the PATH). The
-session-start reminder is a bash command, as Claude Code runs hooks through
-bash (Git Bash on Windows). The nightly pass needs the plugin installed at
+Claude Code and Python 3.9+ (`python` or `python3` on the PATH). The nightly pass needs the plugin installed at
 user scope and Claude Code 2.1.314 or later.
 
 ## Tests

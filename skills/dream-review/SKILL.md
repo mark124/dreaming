@@ -1,7 +1,6 @@
 ---
 name: dream-review
-description: Go through the dreaming proposals waiting for this project (from a nightly or earlier propose-mode pass), show them in plain words, and apply the ones the user approves to the memory notes. Use when the user asks to review dream proposals, when a session-start note says proposals are waiting, or when the user asks what the dream found.
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash(python *dreamctl.py*), Bash(python3 *dreamctl.py*)
+description: Go through the dreaming proposals waiting for this project (from a nightly or earlier propose-mode pass), show them in plain words, and apply the ones the user approves to the memory notes. Use when the user asks to review dream proposals, when the user asks whether proposals are waiting, or when the user asks what the dream found.
 ---
 
 # Review dreaming proposals

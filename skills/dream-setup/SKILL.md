@@ -1,7 +1,6 @@
 ---
 name: dream-setup
 description: Set up dreaming for this project - show where its memory and runs live, create the settings and profile files, and (only if the user asks) schedule a nightly propose-only pass. Use when the user asks to set up, configure or schedule dreaming, or asks where dreaming keeps its files.
-allowed-tools: Read, Write, Edit, Glob, Bash(python *dreamctl.py*), Bash(python3 *dreamctl.py*)
 ---
 
 # Set up dreaming
@@ -24,4 +23,4 @@ The controller is `${CLAUDE_PLUGIN_ROOT}/scripts/dreamctl.py` (if unfilled: `${C
    - Windows: write a one-line `nightly.cmd` in the dreaming home: `"<python path>" "<CTL path>" nightly --project "<project folder>" >> "%USERPROFILE%\.claude-dreaming\nightly.log" 2>&1`, then `schtasks /Create /TN "Claude_Dreaming_<name>" /SC DAILY /ST 04:30 /TR "\"<path to nightly.cmd>\""`. The wrapper keeps the task command short (schtasks allows 261 characters) and quoted.
    - macOS/Linux: a crontab line such as `30 4 * * * cd ~ && python3 "<CTL path>" nightly --project "<project folder>" >> ~/.claude-dreaming/nightly.log 2>&1`
    Use the plugin's installed path for CTL (`controller` in `CTL paths` output), and note it changes when the plugin updates: re-run setup after an update.
-6. Tell the user: proposals from nightly runs wait in the runs folder; a session start in this project mentions them; `/dreaming:dream-review` applies the approved ones.
+6. Tell the user: proposals from nightly runs wait in the runs folder; `/dreaming:dream-review` shows whether any are waiting and `/dreaming:dream-review` applies the approved ones.
